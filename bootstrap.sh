@@ -62,7 +62,6 @@ fi
 echo "source_dir       : ${source_dir}"
 echo "build_dir        : ${build_dir}"
 echo "target           :" $cross_target
-echo "qtplatz_build_dir:" $qtplatz_build_dir
 
 # =============== change directory ==============
 
@@ -78,8 +77,8 @@ echo "#" pwd `pwd`
 
 if [ -z $cross_target ]; then
     
-    echo cmake "${cmake_args[@]}" -D"QTPLATZ_BUILD_DIR=$qtplatz_build_dir" $source_dir
-    cmake "${cmake_args[@]}" -D"QTPLATZ_BUILD_DIR=$qtplatz_build_dir" $source_dir
+    echo cmake "${cmake_args[@]}" $source_dir
+    cmake "${cmake_args[@]}" $source_dir
     
 else
     echo "## Cross build for $arch"
