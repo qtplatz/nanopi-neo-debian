@@ -1,6 +1,5 @@
-===============================================================
+
    CMake scripts for making nanopi-neo debian SD-Card image
-===============================================================
 
 bootstrap.sh -- generate build environment in ../build-armhf/nanopi-neo.release/
 
