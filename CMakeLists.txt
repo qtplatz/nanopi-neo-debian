@@ -78,7 +78,7 @@ add_custom_target(
   DEPENDS ${CMAKE_BINARY_DIR}/linux-${KERNELRELEASE}/arch/arm/boot/zImage
   )
 
-add_custom_target( kernel-source  DEPENDS ${KERNEL_SOURCE} )
+add_custom_target( kernel-source DEPENDS ${KERNEL_SOURCE} )
 
 ###################### U-BOOT #########################
 include ( u-boot )
@@ -108,7 +108,7 @@ set ( bootfs "/mnt/bootfs" )
 set ( rootfs "/mnt/rootfs" )
 include ( mkimage )
 
-add_custom_target( img DEPENDS ${IMGFILE} VERBATIM )
+add_custom_target( img ALL DEPENDS ${IMGFILE} ${UBOOT} VERBATIM )
 #------------- end SDCard image ---------------
 
 message( STATUS "--------------------------------------------" )
