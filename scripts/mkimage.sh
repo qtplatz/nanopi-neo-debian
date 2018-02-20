@@ -74,8 +74,8 @@ echo $loop0
 # Bootloader write to offset 8192
 dd if=$2 of=$loop0 bs=1024 seek=8
 
-sudo mkfs.ext3 ${loop0}p1 || exit 1
-sudo mkfs.ext3 ${loop0}p2 || exit 1
+sudo mkfs.vfat ${loop0}p1 || exit 1
+sudo mkfs.ext4 ${loop0}p2 || exit 1
 sudo mount ${loop0}p1 $bootfs || exit 1
 sudo mount ${loop0}p2 $rootfs || exit 1
 
