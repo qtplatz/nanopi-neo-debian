@@ -1,10 +1,33 @@
+=====
+Nanopi-neo debian SD Card image generator
+=====
 
-   CMake scripts for making nanopi-neo debian SD-Card image
+This project contains cmake and dependent bash scripts for nanopi-neo debian boot SD-Card.
 
-bootstrap.sh -- generate build environment in ../build-armhf/nanopi-neo.release/
+===============
+ Prerequisite
+===============
 
-After execute bootstrap.sh, go to ../build-armhf/nanopi-neo.release/ and try "make help" will shows possible targets.
-"make img" will generate SD Card image file.
+1. Linux (debian9) host (x86_64).
+2. Multiarch for armhf enabled on host.
+
+===========================
+ Dependent debian packages 
+===========================
+
+sudo dpkg --add-architecture armhf
+sudo apt-get -y install crossbuild-essential-armhf
+sudo apt-get -y install bc build-essential cmake dkms git libncurses5-dev
+(May be some else...)
+
+===========================
+ Procedure
+===========================
+
+Run 'bootstrap.sh' on project root directory.  It will create working directory at "../build-armhf/nanopi-neo.release/".
+
+Change directory to "../build-armhf/nanopi-neo.release/", and then try "make help" will shows possible targets.
+Type 'make', which is equivalent to 'make img' will generate nanopi-neo_streatch-<version_number>-dev.img file.
 
 
 

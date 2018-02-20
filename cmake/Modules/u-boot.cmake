@@ -13,7 +13,7 @@ add_custom_command(
   WORKING_DIRECTORY ${UBOOT_BUILD_DIR}  
 )
 
-add_custom_target( u-boot DEPENDS ${UBOOT_BUILD_DIR}/u-boot-sunxi-with-spl.bin )
+add_custom_target( u-boot DEPENDS ${UBOOT} )
 
 # Burn u-boot to SDCard, follow the procedure on  'http://linux-sunxi.org/Bootable_SD_card'
 

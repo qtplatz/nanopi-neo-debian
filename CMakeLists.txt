@@ -108,7 +108,7 @@ set ( bootfs "/mnt/bootfs" )
 set ( rootfs "/mnt/rootfs" )
 include ( mkimage )
 
-add_custom_target( img ALL DEPENDS ${IMGFILE} ${UBOOT} VERBATIM )
+add_custom_target( img ALL DEPENDS ${IMGFILE} ${UBOOT} zImage VERBATIM )
 #------------- end SDCard image ---------------
 
 message( STATUS "--------------------------------------------" )
