@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright 2017-2018 (C) MS-Cheminformatics LLC
+# Project supported by Osaka University Graduate School of Science
+# Author: Toshinobu Hondo, Ph.D.
 
 stage=
 
@@ -16,11 +19,11 @@ done
 if [ -z $stage ]; then
 
     if [ -z $targetdir ]; then
-	targetdir=arm-linux-gnueabihf-rootfs-$distro
+		targetdir=arm-linux-gnueabihf-rootfs-$distro
     fi
     
     if [ -z $distro ]; then
-	distro=jessie
+		distro=jessie
     fi
 
     sudo apt-get install qemu-user-static debootstrap binfmt-support
@@ -40,7 +43,7 @@ if [ -z $stage ]; then
 else
 
     if [ -z $distro ]; then
-	distro=jessie
+		distro=jessie
     fi
     
     export LANG=C

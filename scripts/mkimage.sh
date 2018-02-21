@@ -1,5 +1,6 @@
 #!/bin/bash
 # Copyright 2017-2018 (C) MS-Cheminformatics LLC
+# Project supported by Osaka University Graduate School of Science
 # Author: Toshinobu Hondo, Ph.D.
 #
 # See: http://linux-sunxi.org/Bootable_SD_card

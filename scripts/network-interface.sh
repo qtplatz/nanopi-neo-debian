@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright 2017-2018 (C) MS-Cheminformatics LLC
+# Project supported by Osaka University Graduate School of Science
+# Author: Toshinobu Hondo, Ph.D.
 
 mnt=/mnt
 config=dhcp

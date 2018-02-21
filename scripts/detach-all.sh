@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright 2017-2018 (C) MS-Cheminformatics LLC
+# Project supported by Osaka University Graduate School of Science
+# Author: Toshinobu Hondo, Ph.D.
 
 count=`sudo losetup | grep "/dev/loop[0-9]" |wc -l`
 echo $count " device(s) found"
