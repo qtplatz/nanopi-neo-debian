@@ -34,7 +34,7 @@ set ( MAKE make )
 set ( DOWNLOADS $ENV{HOME}/Downloads )
 set ( KERNEL_SOURCE ${CMAKE_BINARY_DIR}/linux-${KERNELRELEASE} )
 set ( UBOOT_BUILD_DIR ${CMAKE_BINARY_DIR}/u-boot-${target_device} )
-set ( rootfs ${BUILD_ROOT}/arm-linux-gnueabihf-rootfs-${distro} )
+set ( ROOTFS ${BUILD_ROOT}/arm-linux-gnueabihf-rootfs-${distro} )
 set ( TOOLS ${CMAKE_SOURCE_DIR}/scripts )
 
 add_custom_command(
@@ -86,14 +86,12 @@ include ( u-boot )
 set ( IMGFILE
   ${CMAKE_BINARY_DIR}/${target}_${distro}-${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}.${VERSION_TWEAK}-dev.img )
 
-#------------- debian rootfs ---------------
-set ( ROOTFS ${BUILD_ROOT}/arm-linux-gnueabihf-rootfs-${distro} )
-
+#------------- debian debootstrap ---------------
 add_custom_command( 
   OUTPUT ${ROOTFS}
-  COMMAND ${MAKE} DISTRO=${distro} TARGETDIR=${ROOTFS} -C ${CMAKE_SOURCE_DIR}/scripts world
+  COMMAND ${MAKE} -f debootstrap.make DISTRO=${distro} TARGETDIR=${ROOTFS} -C ${CMAKE_SOURCE_DIR}/scripts world
   )
-add_custom_target( rootfs DEPENDS ${ROOTFS} )
+add_custom_target( debian DEPENDS ${ROOTFS} )
 #------------- end debian rootfs ---------------
 
 add_custom_command(
@@ -125,13 +123,14 @@ message( STATUS "BOOST_VERSION   = " ${BOOST_VERSION} )
 message( STATUS "KERNEL_SOURCE   = " ${KERNEL_SOURCE} )
 message( STATUS "UBOOT_BUILD_DIR = " ${UBOOT_BUILD_DIR} )
 message( STATUS "UBOOT           = " ${UBOOT} )
+message( STATUS "ROOTFS          = " ${ROOTFS} )
 message( STATUS "distro          = " ${distro} )
 message( STATUS "cross_target    = " ${cross_target} )
 message( STATUS "target_device   = " ${target_device} )
 message( STATUS "rootfs          = " ${rootfs} )
+message( STATUS "bootfs          = " ${bootfs} )
 message( STATUS "DOWNLOADS       = " ${DOWNLOADS} )
 message( STATUS "IMGFILE         = " ${IMGFILE} )
-message( STATUS "ROOTFS          = " ${ROOTFS} )
 message( STATUS "BOOT_FILES        " )
 foreach( i ${BOOT_FILES} )
   message( STATUS "\t\t${i}" )
