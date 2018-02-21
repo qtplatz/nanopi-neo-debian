@@ -112,9 +112,13 @@ list ( APPEND BOOT_FILES "${KERNEL_SOURCE}/arch/arm/boot/zImage" )
 list ( APPEND BOOT_FILES "${KERNEL_SOURCE}/.config" )
 set ( bootfs "/mnt/bootfs" )
 set ( rootfs "/mnt/rootfs" )
+
 include ( mkimage )
 
-add_custom_target( img ALL DEPENDS ${IMGFILE} ${UBOOT} zImage VERBATIM )
+add_custom_target( img ALL
+  DEPENDS ${IMGFILE} ${UBOOT} ${CMAKE_BINARY_DIR}/linux-${KERNELRELEASE}/arch/arm/boot/zImage
+  VERBATIM
+  )
 #------------- end SDCard image ---------------
 
 message( STATUS "--------------------------------------------" )

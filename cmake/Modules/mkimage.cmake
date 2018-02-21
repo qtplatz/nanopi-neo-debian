@@ -34,7 +34,7 @@ add_custom_command(
   COMMAND ${SUDO} chroot ${rootfs} /bin/bash -c ./post-install.sh
   COMMAND echo "========================================================="
   COMMAND echo "-- image mount on ${bootfs}, ${rootfs} -- You can now add your applications manually to ${rootfs} --"
-  COMMAND echo "-- don't forget to run 'make umount' --"
+  COMMAND echo "-- you should run 'make umount' after modify ${rootfs} --"
   DEPENDS ${ROOTFS} ${UBOOT} ${BOOT_FILES} ${PACKAGES}
   USES_TERMINAL
   COMMENT "-- making ${IMGFILE} --"  
