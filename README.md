@@ -24,10 +24,14 @@ sudo apt-get -y install bc build-essential cmake dkms git libncurses5-dev
  Procedure
 ===========================
 
-Run 'bootstrap.sh' on project root directory.  It will create working directory at "../build-armhf/nanopi-neo.release/".
+Run './bootstrap.sh' on project root directory.
+Then, chdir to "../build-armhf/nanopi-neo.release/", and type make
 
-Change directory to "../build-armhf/nanopi-neo.release/", and then try "make help" will shows possible targets.
-Type 'make', which is equivalent to 'make img' will generate nanopi-neo_streatch-<version_number>-dev.img file.
+It will make 'nanopi-neo_streatch-<version_number>-dev.img'
+
+Try 'make help' on build directory ("../build-armhf/nanopi-neo.release/") for more information.
+
+Good luck.
 
 
 

@@ -27,7 +27,7 @@ add_custom_command(
   COMMAND ${SUDO} ${MAKE} -C ${KERNEL_SOURCE} ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j4 modules_install INSTALL_MOD_PATH=${rootfs}
   COMMAND ${SUDO} ${TOOLS}/network-interface.sh
   COMMAND echo "-- generating post-install script on ${rootfs} ---"  
-  COMMAND ${SUDO} KERNELRELEASE='${KERNELRELEASE}' BOOST_VERSION='${BOOST_VERSION}' ${TOOLS}/create-dev-script.sh "${rootfs}"
+  COMMAND ${SUDO} KERNELRELEASE='${KERNELRELEASE}' BOOST_VERSION='${BOOST_VERSION}' ${TOOLS}/setup-debian-dev.sh "${rootfs}"
   COMMAND echo "========================================================="
   COMMAND echo "-- executing ${rootfs}/post-install ---"  
   COMMAND ${SUDO} chroot ${rootfs} /bin/bash -c ./post-install.sh

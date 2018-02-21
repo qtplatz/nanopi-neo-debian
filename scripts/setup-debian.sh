@@ -11,11 +11,6 @@ cat <<EOF>${outfile}
 #!/bin/bash
 apt-get -y update && apt-get -y upgrade
 apt-get -y install sudo
-apt-get -y install u-boot-tools
-apt-get -y install libncurses5-dev bc git build-essential cmake dkms
-apt-get -y install libboost-date-time-dev libboost-regex-dev libboost-filesystem-dev libboost-thread-dev libboost-program-options-dev libboost-serialization-dev
-apt-get -y install libboost-exception-dev
-useradd -m -p paQe5lBRZr7FQ -G sudo -s /bin/bash weight
 
 make -C /usr/src/linux-${KERNELRELEASE} ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules_prepare
 ln -sf /usr/src/linux-${KERNELRELEASE} /lib/modules/${KERNELRELEASE}/build

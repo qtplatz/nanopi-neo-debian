@@ -96,8 +96,16 @@ add_custom_command(
 add_custom_target( rootfs DEPENDS ${ROOTFS} )
 #------------- end debian rootfs ---------------
 
+add_custom_command(
+  OUTPUT ${CMAKE_BINARY_DIR}/boot.scr
+  COMMAND mkimage -A arm -O linux -T script -C none -n "nanopi-neo" -d ${CMAKE_SOURCE_DIR}/src/boot.cmd ${CMAKE_BINARY_DIR}/boot.scr
+  DEPENDS ${CMAKE_SOURCE_DIR}/src/boot.cmd
+  )
+
+add_custom_target( boot.scr DEPENDS ${CMAKE_BINARY_DIR}/boot.scr )
+
 #------------- SDCard image ---------------
-#set ( SCR ${CMAKE_SOURCE_DIR}/bootcmd/boot.scr )
+set ( SCR ${CMAKE_BINARY_DIR}/boot.scr )
 set ( DTB ${CMAKE_BINARY_DIR}/linux-${KERNELRELEASE}/arch/arm/boot/dts/sun8i-h3-nanopi-neo.dtb )
 set ( DTS ${CMAKE_BINARY_DIR}/linux-${KERNELRELEASE}/arch/arm/boot/dts/sun8i-h3-nanopi-neo.dts )
 set ( UBOOT ${UBOOT_BUILD_DIR}/u-boot-sunxi-with-spl.bin )
